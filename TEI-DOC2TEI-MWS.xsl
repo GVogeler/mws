@@ -3,6 +3,8 @@
     xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:mws="http://gams.uni-graz.at/mws"
     xmlns:t="http://www.tei-c.org/ns/1.0" exclude-result-prefixes="xs t" version="2.0">
     <!-- Das Stylesheet kopiert alle XML Element und fügt an Stellen, an denen der Inhalt von $milestone vorkommt ein Element ein, das den Wert von $milestone bekommt. Es prüft, ob ein Asterisk vorangeht oder folgt. -->
+    <!-- ToDo: Eine Liste von Milestone-Kodierungen verwenden
+    Seitenumbrüche, Markup -->
     <xsl:variable name="milestone">E2</xsl:variable>
     <xsl:template match="/">
         <xsl:apply-templates/>
@@ -36,7 +38,7 @@
                     </xsl:attribute>
                 </xsl:element>
                 <xsl:call-template name="milestone">
-                    <xsl:with-param name="text" select="substring-after($following,'*')"/>
+                    <xsl:with-param name="text" select="concat(substring-after(substring($following,1,1),'*'),substring($following,2))"/>
                 </xsl:call-template>
             </xsl:when>
             <xsl:otherwise>
