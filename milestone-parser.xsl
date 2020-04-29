@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
- <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="2.0">
+<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:tei="http://www.tei-c.org/ns/1.0" version="2.0">
      <!-- milestone parser
      parst ein XML nach milestone-Elementen, die paarweise verschachtelt gesetzt sind, wobei das abschließende Element mit @rend="closer" markiert ist und das eröffnende eine @xml:id besitzt. Die paarweise Zuordnung wird explizit gemacht, indem dem anschließenden Element ein @corresp auf die zugehörige xml:id vergeben wird.
      
@@ -17,7 +17,7 @@
     <xsl:param name="close-identifier"><attributeName>rend</attributeName><attributeValue>closer</attributeValue></xsl:param>
     <xsl:param name="unit"><!-- not yet implemented --></xsl:param>
     
-    <xsl:template match="milestone[@*[name()=$close-identifier/attributeName]=$close-identifier/attributeValue]">
+    <xsl:template match="tei:milestone[@*[name()=$close-identifier/attributeName]=$close-identifier/attributeValue]">
      <xsl:variable name="my-opener">
          <xsl:call-template name="find-opener">
              <xsl:with-param name="depth">0</xsl:with-param>
@@ -36,7 +36,7 @@
  <xsl:template name="find-opener">
      <xsl:param name="depth">0</xsl:param>
      <xsl:param name="current" select="."/>
-     <xsl:variable name="prev" select="$current/preceding::milestone[1]"/>
+     <xsl:variable name="prev" select="$current/preceding::tei:milestone[1]"/>
      <xsl:choose>
          <xsl:when test="$prev[@*[name()=$close-identifier/attributeName]=$close-identifier/attributeValue]">
          <!-- der vorangehende milestone ist auch ein closer, also muß ich die Rekursion um eins vertiefen (depth+1) -->
