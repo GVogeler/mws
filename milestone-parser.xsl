@@ -38,7 +38,7 @@
      <xsl:param name="current" select="."/>
      <xsl:variable name="prev" select="$current/preceding::milestone[1]"/>
      <xsl:choose>
-         <xsl:when test="$prev[@*[name()=$close-identifier/attributeName]=$close-identifier/attributeValue]
+         <xsl:when test="$prev[@*[name()=$close-identifier/attributeName]=$close-identifier/attributeValue]">
          <!-- der vorangehende milestone ist auch ein closer, also muß ich die Rekursion um eins vertiefen (depth+1) -->
              <xsl:call-template name="find-opener">
                  <xsl:with-param name="depth" select="number($depth) + 1"/>
