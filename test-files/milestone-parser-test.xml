@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<doc>
+    <div>
+        <milestone unit="AE" xml:id="FR.4"/> 44 
+    <milestone unit="AE" xml:id="FR.6"/>
+    <number>666</number>
+    <milestone rend="closer" unit="AE" test="FR.6"/> 44 
+        
+        <milestone rend="closer" unit="AE" test="FR.4"/></div>
+    
+    <milestone unit="AE" xml:id="FR.8"/> 8888 
+        <milestone
+        rend="closer" unit="AE" test="FR.8"/> 444 
+    <div>
+        <p>So  geht's</p>
+    </div>
+</doc>
