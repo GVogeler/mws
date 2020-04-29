@@ -11,7 +11,7 @@
      <!-- ToDo:
      TEI namespace hinzufügen
      
-     Wird generischer, wenn man die Markierung von opener und closer parametrisiert (@type z.B.) und wenn man die @unit mit einbezieht
+     Wird generischer, wenn man die @unit mit einbezieht
      -->
      
     <xsl:param name="close-identifier"><attributeName>rend</attributeName><attributeValue>closer</attributeValue></xsl:param>
